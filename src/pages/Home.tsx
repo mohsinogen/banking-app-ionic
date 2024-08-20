@@ -1,5 +1,4 @@
-import { IonButton, IonCol, IonContent, IonHeader, IonIcon, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonAvatar, IonButton, IonCol, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import './Home.css';
 import { arrowDown, arrowUp, notificationsOutline, qrCode } from 'ionicons/icons';
 
@@ -55,6 +54,31 @@ const Home: React.FC = () => {
             </IonButton>
           </IonCol>
         </IonRow>
+
+
+        <IonList>
+          <IonListHeader>
+            <IonLabel className='f-bold f-size-4-px'>Transactions</IonLabel>
+          </IonListHeader>
+          <IonRow className='ion-justify-content-between ion-align-items-center'>
+            <IonCol size='3' className='d-flex centered'>
+                <img style={{ width: '44px', height: '44px', borderRadius: '50px' }} alt="image" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </IonCol>
+            <IonCol size='7'>
+              <IonRow><IonText color={'medium'}>
+                Welcome Back
+              </IonText></IonRow>
+              <IonRow><IonText color={'dark'} className='f-bold'>
+                test user!
+              </IonText></IonRow>
+            </IonCol>
+            <IonCol>
+              <IonText className='f-bold' color={'success'}>
+                + 677
+              </IonText>
+            </IonCol>
+          </IonRow>
+        </IonList>
       </IonContent>
     </IonPage>
   );
