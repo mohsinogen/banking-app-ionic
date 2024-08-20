@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
@@ -18,6 +18,7 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+import './App.css';
 
 /**
  * Ionic Dark Mode
@@ -32,12 +33,16 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { ellipse, square, triangle } from 'ionicons/icons';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+
+      <IonTabs>
+
       <IonRouterOutlet>
         <Route exact path="/home">
           <Home />
@@ -45,7 +50,24 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        
       </IonRouterOutlet>
+
+      <IonTabBar slot="bottom">
+      <IonTabButton tab="tab1" href="/home">
+        <IonIcon icon={triangle} />
+        <IonLabel>Tab 1</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="tab2" href="/tabs/tab2">
+        <IonIcon icon={ellipse} />
+        <IonLabel>Tab 2</IonLabel>
+      </IonTabButton>
+      <IonTabButton tab="tab3" href="/tabs/tab3">
+        <IonIcon icon={square} />
+        <IonLabel>Tab 3</IonLabel>
+      </IonTabButton>
+    </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
