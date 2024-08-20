@@ -33,7 +33,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, home, square, triangle } from 'ionicons/icons';
 
 setupIonicReact();
 
@@ -43,30 +43,30 @@ const App: React.FC = () => (
 
       <IonTabs>
 
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        
-      </IonRouterOutlet>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
 
-      <IonTabBar slot="bottom">
-      <IonTabButton tab="tab1" href="/home">
-        <IonIcon icon={triangle} />
-        <IonLabel>Tab 1</IonLabel>
-      </IonTabButton>
-      <IonTabButton tab="tab2" href="/tabs/tab2">
-        <IonIcon icon={ellipse} />
-        <IonLabel>Tab 2</IonLabel>
-      </IonTabButton>
-      <IonTabButton tab="tab3" href="/tabs/tab3">
-        <IonIcon icon={square} />
-        <IonLabel>Tab 3</IonLabel>
-      </IonTabButton>
-    </IonTabBar>
+        </IonRouterOutlet>
+
+        <IonTabBar color={'light'} slot="bottom">
+          <IonTabButton tab="tab1" href="/home">
+            <IonIcon icon={home} />
+            <IonLabel>Home</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab2" href="/tabs/tab2">
+            <IonIcon icon={ellipse} />
+            <IonLabel>Tab 2</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tabs/tab3">
+            <IonIcon icon={square} />
+            <IonLabel>Tab 3</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
       </IonTabs>
     </IonReactRouter>
   </IonApp>

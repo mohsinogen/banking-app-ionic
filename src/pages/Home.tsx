@@ -37,19 +37,19 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
 
         <IonRow className='ion-align-items-center ion-justify-content-between'>
-          <IonCol size='4.5'>
+          <IonCol size='5'>
             <IonButton expand='block' mode='ios' shape='round' color={'light'}>
               <IonIcon slot="start" icon={arrowDown}></IonIcon>
               Receive
             </IonButton>
           </IonCol>
-          <IonCol size='4.5'>
+          <IonCol size='5'>
             <IonButton expand='block' mode='ios' shape='round' color={'light'}>
               <IonIcon slot="start" icon={arrowUp}></IonIcon>
               Pay
             </IonButton>
           </IonCol>
-          <IonCol className='d-flex centered' size='3'>
+          <IonCol className='d-flex centered' size='2'>
             <IonButton fill='outline' color={'light'} shape='round' size='large'>
               <IonIcon color='dark' slot="icon-only" icon={qrCode}></IonIcon>
             </IonButton>
