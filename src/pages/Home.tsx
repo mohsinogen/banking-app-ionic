@@ -12,16 +12,19 @@ const Home: React.FC = () => {
       amount: '53,454.56',
       carNumber: '4345',
       expire: '03/32',
+      cardLogo:'./visaLogo.png'
     },
     {
       amount: '24,434.06',
       carNumber: '4532',
       expire: '10/33',
+      cardLogo:'./master-card-logo.png'
     },
     {
       amount: '24,434.06',
       carNumber: '4532',
       expire: '10/33',
+      cardLogo:'./visaLogo.png'
     },
   ];
 
@@ -131,7 +134,7 @@ const Home: React.FC = () => {
               <div key={index} color={'light'} className='card-item'>
                 <IonRow className='ion-justify-content-end'>
                   <IonCol size='2'>
-                    <img style={{ width: '50px' }} src={'./visaLogo.png'} />
+                    <img style={{ width: '50px' }} src={item.cardLogo} />
                   </IonCol>
                 </IonRow>
                 <IonText color={'medium'} className='f-size-6-px'>Your Balance</IonText>
@@ -191,7 +194,7 @@ const Home: React.FC = () => {
             </IonRow>
 
             {transactions.map((item, index) => (
-              <TransactionItem transaction={item} />
+              <TransactionItem key={index} transaction={item} />
             ))}
           </div>
         </div>
