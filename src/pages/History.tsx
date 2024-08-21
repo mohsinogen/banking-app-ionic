@@ -1,6 +1,8 @@
 import { IonCol, IonContent, IonHeader, IonLabel, IonPage, IonRow, IonSegment, IonSegmentButton, IonText, IonTitle, IonToolbar } from "@ionic/react"
 import { Transaction } from "../types/global.types";
 import TransactionItem from "../components/TransactionItem/TransactionItem";
+import { useState } from "react";
+import "./History.css"
 
 const History: React.FC = () => {
 
@@ -70,14 +72,21 @@ const History: React.FC = () => {
         }
     ];
 
+    const [currentSegment, setCurrentSegment] = useState('all');
+
     return (
         <IonPage>
             <IonHeader mode="ios">
-                <IonToolbar>
+                <IonToolbar color={'dark'}>
                     <IonTitle>History</IonTitle>
                 </IonToolbar>
-                <IonToolbar>
-                    <IonSegment value="all">
+                <IonToolbar color={'dark'}>
+                    <IonSegment onIonChange={(e) => {
+                        if(e.detail?.value){
+                            setCurrentSegment(e.detail.value.toString())
+                        }
+                    }
+                    } value={currentSegment}>
                         <IonSegmentButton value="all">
                             <IonLabel>All</IonLabel>
                         </IonSegmentButton>
@@ -97,8 +106,17 @@ const History: React.FC = () => {
 
                 <div>
 
-                    {transactions.map((item, index) => (
-                        <TransactionItem transaction={item} />
+                    {transactions.filter(item=>{
+                        
+                        if (currentSegment === 'debit') {
+                            return item['type'] === 'debit';
+                        } else if (currentSegment === 'credit') {
+                            return item['type'] === 'credit';
+                        } else {
+                            return true; // In case you want to return all items if currentSegment is neither 'debit' nor 'credit'
+                        }
+                    }).map((item, index) => (
+                        <TransactionItem key={index} transaction={item} />
                     ))}
                 </div>
             </IonContent>

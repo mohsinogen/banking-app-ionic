@@ -109,5 +109,5 @@ http://ionicframework.com/docs/theming/ */
 	--ion-color-dark-shade: #292929;
 	--ion-color-dark-tint: #444444;
 
-    /* --ion-background-color: rgb(20, 38, 173); */
+    --ion-background-color: var(--ion-color-dark);
 }

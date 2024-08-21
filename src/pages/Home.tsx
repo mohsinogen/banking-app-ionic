@@ -122,7 +122,7 @@ const Home: React.FC = () => {
         </IonRow>
       </IonHeader>
 
-      <IonContent fullscreen color={'primary'}>
+      <IonContent fullscreen>
 
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
