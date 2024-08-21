@@ -1,0 +1,33 @@
+.card-container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  flex-direction: row;
+  margin: 10px 0px;
+
+  .card-item {
+    scroll-snap-align: center;
+    position: relative;
+    height: 100%;
+
+    min-width: 80%;
+    background: var(--ion-color-light);
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0px 10px;
+  }
+}
+
+.card-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.recent-transactions {
+  background: var(--ion-color-light);
+  flex-grow: 1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 10px 20px 10px;
+  margin-top: 10px;
+}
