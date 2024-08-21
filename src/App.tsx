@@ -33,7 +33,8 @@ import './App.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { ellipse, home, square, triangle } from 'ionicons/icons';
+import { ellipse, home, pieChart, square, time, triangle } from 'ionicons/icons';
+import History from './pages/History';
 
 setupIonicReact();
 
@@ -47,6 +48,9 @@ const App: React.FC = () => (
           <Route exact path="/home">
             <Home />
           </Route>
+          <Route exact path="/history">
+            <History />
+          </Route>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
@@ -54,17 +58,14 @@ const App: React.FC = () => (
         </IonRouterOutlet>
 
         <IonTabBar color={'light'} slot="bottom">
-          <IonTabButton tab="tab1" href="/home">
+          <IonTabButton tab="home" href="/home">
             <IonIcon icon={home} />
-            <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tabs/tab2">
             <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tabs/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="history" href="/history">
+            <IonIcon icon={pieChart} />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

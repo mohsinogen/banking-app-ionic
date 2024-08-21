@@ -1,3 +1,19 @@
+ion-content{
+  font-family: "Roboto", sans-serif !important;
+}
+
+.f-family-saira {
+  font-family: "SairaCondensed", sans-serif !important;
+}
+
+.f-family-poppins {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.f-family-roboto {
+  font-family: "Roboto", sans-serif !important;
+}
+
 .d-flex {
   display: flex !important;
 }
@@ -123,17 +139,7 @@
   overflow: hidden !important;
 }
 
-.f-family-saira {
-  font-family: "SairaCondensed", sans-serif !important;
-}
 
-.f-family-poppins {
-  font-family: "Poppins", sans-serif !important;
-}
-
-.f-family-roboto {
-  font-family: "Roboto", sans-serif !important;
-}
 
 .datepicker-modal {
   --height: fit-content;
@@ -149,3 +155,4 @@
 .t-center {
   text-align: center;
 }
+

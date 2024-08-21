@@ -1,6 +1,50 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
 
+
+
+@font-face {
+	font-family: "SairaCondensed";
+	font-style: normal;
+	font-weight: normal;
+	src: url("./fonts/SairaCondensed-Regular.ttf");
+  }
+  
+  @font-face {
+	font-family: "SairaCondensed";
+	font-style: normal;
+	font-weight: bold;
+	src: url("./fonts/SairaCondensed-Bold.ttf");
+  }
+  
+  @font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: normal;
+	src: url("./fonts/Roboto-Regular.ttf");
+  }
+  
+  @font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: bold;
+	src: url("./fonts/Roboto-Bold.ttf");
+  }
+  
+  @font-face {
+	  font-family: "Poppins";
+	  font-style: normal;
+	  font-weight: normal;
+	  src: url("./fonts/Poppins-Regular.ttf");
+	}
+	
+	@font-face {
+	  font-family: "Poppins";
+	  font-style: normal;
+	  font-weight: bold;
+	  src: url("./fonts/Poppins-Bold.ttf");
+	}
+
 :root {
 	--ion-color-primary: #0054e9;
 	--ion-color-primary-rgb: 0,84,233;
@@ -65,5 +109,5 @@ http://ionicframework.com/docs/theming/ */
 	--ion-color-dark-shade: #292929;
 	--ion-color-dark-tint: #444444;
 
-    --ion-background-color: rgb(234, 234, 234);
+    /* --ion-background-color: rgb(20, 38, 173); */
 }
