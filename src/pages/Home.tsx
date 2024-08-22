@@ -3,28 +3,29 @@ import './Home.css';
 import { arrowDown, arrowUp, eye, notifications, notificationsOutline, qrCode } from 'ionicons/icons';
 import { useRef } from 'react';
 import TransactionItem from '../components/TransactionItem/TransactionItem';
-import { Transaction } from '../types/global.types';
+import { Card, Transaction } from '../types/global.types';
+import CardItem from '../components/CardItem/CardItem';
 
 const Home: React.FC = () => {
 
-  const cards = [
+  const cards: Card[] = [
     {
       amount: '53,454.56',
       carNumber: '4345',
       expire: '03/32',
-      cardLogo:'./visaLogo.png'
+      cardLogo: './visaLogo.png'
+    },
+    {
+      amount: '74,434.06',
+      carNumber: '4532',
+      expire: '10/33',
+      cardLogo: './master-card-logo.png'
     },
     {
       amount: '24,434.06',
       carNumber: '4532',
       expire: '10/33',
-      cardLogo:'./master-card-logo.png'
-    },
-    {
-      amount: '24,434.06',
-      carNumber: '4532',
-      expire: '10/33',
-      cardLogo:'./visaLogo.png'
+      cardLogo: './visaLogo.png'
     },
   ];
 
@@ -100,98 +101,64 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader className='ion-no-border'>
         <IonRow className='ion-align-items-center ion-justify-content-between ion-margin-top'>
-          <IonCol>
-
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '10px' }}>
-              <div className='d-flex centered' style={{ background: 'var(--ion-color-light)', borderRadius: '80px', width: '55px', height: '55px' }}>
-                <img width={'50px'} height={'50px'} src='./avatars/Avatar-12.png' />
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <IonText className='f-family-roboto f-size-6-px' color={'light'}>
-                  Welcome Back
-                </IonText>
-                <IonText color={'light'} className='f-bold f-family-poppins'>
-                  Peter Parker!
-                </IonText>
-              </div>
+          <IonCol size='2'>
+            <div className='d-flex centered' style={{ background: 'var(--ion-color-light)', borderRadius: '80px', width: '55px', height: '55px', marginLeft: '5px' }}>
+              <img width={'50px'} height={'50px'} src='./avatars/Avatar-12.png' />
             </div>
           </IonCol>
-          <IonCol size={'2'}>
+          <IonCol className='d-flex' style={{ flexDirection: 'column', marginLeft: '5px' }}>
+            <IonText className='f-family-roboto f-size-6-px' color={'light'}>
+              Welcome Back
+            </IonText>
+            <IonText color={'light'} className='f-bold f-family-poppins'>
+              Peter Parker!
+            </IonText>
+          </IonCol>
+          <IonCol className='d-flex centered' size={'2'}>
             <IonButton color={'light'} shape='round'>
-              <IonIcon color='dark' slot="icon-only" icon={notifications}></IonIcon>
+              <IonIcon color='primary' slot="icon-only" icon={notifications}></IonIcon>
             </IonButton>
           </IonCol>
         </IonRow>
       </IonHeader>
 
-      <IonContent fullscreen>
+      <IonContent fullscreen color={'dark'}>
 
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
           <div className='d-flex card-container'>
             {cards.map((item, index) => (
-              <div key={index} color={'light'} className='card-item'>
-                <IonRow className='ion-justify-content-end'>
-                  <IonCol size='2'>
-                    <img style={{ width: '50px' }} src={item.cardLogo} />
-                  </IonCol>
-                </IonRow>
-                <IonText color={'medium'} className='f-size-6-px'>Your Balance</IonText>
-                <IonRow>
-                  <IonCol>
-                    <IonText color={'dark'} className='f-bold f-size-2-px f-family-poppins'>&#x20b9;{item.amount}</IonText>
-                  </IonCol>
-                  <IonCol size='2'>
-                    <IonButton fill='outline' color={'light'} shape='round'>
-                      <IonIcon color='dark' slot="icon-only" icon={eye}></IonIcon>
-                    </IonButton>
-                  </IonCol>
-                </IonRow>
-                <IonRow className='ion-align-items-center ion-justify-content-between'>
-                  <IonCol className='d-flex' style={{ flexDirection: 'column', alignItems: 'start' }} size='5'>
-                    <IonText color={'medium'} className='f-size-7-px'>Card Number</IonText>
-                    <IonText className='f-bold f-family-poppins f-size-6-px' color={'dark'}>&#9679;&#9679;&#9679;&#9679;{item.carNumber}</IonText>
-                  </IonCol>
-                  <IonCol className='d-flex' style={{ flexDirection: 'column', alignItems: 'end' }} size='3'>
-                    <IonText color={'medium'} className='f-size-7-px'>Valid Thru</IonText>
-                    <IonText className='f-bold f-family-poppins f-size-6-px' color={'dark'}>{item.expire}</IonText>
-                  </IonCol>
-                </IonRow>
-
-              </div>
+              <CardItem cardData={item} key={index} />
             ))}
           </div>
 
           <IonRow className='ion-align-items-center ion-justify-content-between'>
             <IonCol size='5'>
               <IonButton className='f-bold' expand='block' mode='ios' shape='round' color={'light'}>
-                <IonIcon slot="start" icon={arrowDown}></IonIcon>
-                Receive
+                <IonIcon color='primary' style={{ rotate: '45deg' }} slot="start" icon={arrowDown}></IonIcon>
+                Request
               </IonButton>
             </IonCol>
             <IonCol size='5'>
-              <IonButton className='f-bold' expand='block' mode='ios' shape='round' color={'light'}>
-                <IonIcon slot="start" icon={arrowUp}></IonIcon>
-                Pay
+              <IonButton routerDirection='forward' routerLink='/transfer' className='f-bold' expand='block' mode='ios' shape='round' color={'light'}>
+                <IonIcon color='primary' style={{ rotate: '45deg' }} slot="start" icon={arrowUp}></IonIcon>
+                Transfer
               </IonButton>
             </IonCol>
             <IonCol className='d-flex centered' size='2'>
               <IonButton color={'light'} shape='round' size='large'>
-                <IonIcon color='dark' slot="icon-only" icon={qrCode}></IonIcon>
+                <IonIcon color='primary' slot="icon-only" icon={qrCode}></IonIcon>
               </IonButton>
             </IonCol>
           </IonRow>
 
           <div className='recent-transactions'>
 
-            <IonRow className='ion-align-items-center ion-justify-content-between'>
-              <IonCol size='7'>
-                <IonText color={'dark'} className='f-bold f-size-4-px f-family-poppins'>Transactions</IonText>
-              </IonCol>
-              <IonCol size='2.5'><IonText color={'medium'} className='t-underline f-size-6-px f-bold'>
-                View All</IonText></IonCol>
-            </IonRow>
+            <div className='d-flex' style={{ alignItems: 'center', justifyContent: 'space-between', marginLeft: '10px' }}>
+              <IonText color={'dark'} className='f-bold f-size-4-px'>Transactions</IonText>
+              <IonButton routerLink='/tabs/history' mode='ios' className='t-underline f-size-6-px f-bold' color={'dark'} fill='clear'>View All</IonButton>
+            </div>
+
 
             {transactions.map((item, index) => (
               <TransactionItem key={index} transaction={item} />

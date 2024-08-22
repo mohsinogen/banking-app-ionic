@@ -1,5 +1,5 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
+import { Redirect, Route, useLocation } from 'react-router-dom';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact, useIonRouter } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
@@ -35,40 +35,19 @@ import './App.css';
 import './theme/variables.css';
 import { ellipse, home, pieChart, square, time, triangle } from 'ionicons/icons';
 import History from './pages/History';
+import Transfer from './pages/Transfer/Transfer';
+import MainLayout from './layouts/MainLayout';
 
 setupIonicReact();
 
 const App: React.FC = () => (
+
+  
+
   <IonApp>
     <IonReactRouter>
 
-      <IonTabs>
-
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/history">
-            <History />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-
-        </IonRouterOutlet>
-
-        <IonTabBar color={'light'} slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home} />
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tabs/tab2">
-            <IonIcon icon={ellipse} />
-          </IonTabButton>
-          <IonTabButton tab="history" href="/history">
-            <IonIcon icon={pieChart} />
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+    <MainLayout />
     </IonReactRouter>
   </IonApp>
 );
