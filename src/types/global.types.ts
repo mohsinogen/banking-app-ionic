@@ -11,4 +11,5 @@ export interface Card {
   carNumber: string;
   expire: string;
   cardLogo: string;
+  active: boolean;
 }

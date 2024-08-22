@@ -6,13 +6,16 @@ import Home from '../pages/Home'
 import History from '../pages/History'
 import Transfer from '../pages/Transfer/Transfer'
 import { card, ellipse, home, pieChart } from 'ionicons/icons'
+import Cards from '../pages/Cards/Cards'
 
 function MainLayout() {
 
     const location = useLocation();
 
     const shouldHideTabs = () =>{
-        if(location.pathname.includes('tabs')){
+        console.log('path',location.pathname);
+        
+        if(location.pathname.includes('tabs') || location.pathname==='/'){
             return false;
         } else {
             return true;
@@ -35,6 +38,9 @@ function MainLayout() {
                 <Route exact path="/transfer">
                     <Transfer />
                 </Route>
+                <Route exact path="/tabs/cards">
+                    <Cards />
+                </Route>
                 <Route exact path="/">
                     <Redirect to="/tabs/home" />
                 </Route>
@@ -48,7 +54,7 @@ function MainLayout() {
                 <IonTabButton tab="history" href="/tabs/history">
                     <IonIcon icon={pieChart} />
                 </IonTabButton>
-                <IonTabButton tab="tab2" href="/tabs/tab2">
+                <IonTabButton tab="cards" href="/tabs/cards">
                     <IonIcon icon={card} />
                 </IonTabButton>
             </IonTabBar>

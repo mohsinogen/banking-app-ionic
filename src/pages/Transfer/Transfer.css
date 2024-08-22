@@ -1,0 +1,4 @@
+ion-select::part(icon) {
+    color: var(--ion-color-primary);
+    opacity: 1;
+  }

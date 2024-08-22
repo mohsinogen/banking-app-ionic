@@ -80,34 +80,36 @@ const History: React.FC = () => {
                 <IonToolbar color={'dark'}>
                     <IonTitle>History</IonTitle>
                 </IonToolbar>
-                <IonToolbar color={'dark'}>
-                    <IonSegment onIonChange={(e) => {
-                        if(e.detail?.value){
-                            setCurrentSegment(e.detail.value.toString())
-                        }
-                    }
-                    } value={currentSegment}>
-                        <IonSegmentButton value="all">
-                            <IonLabel>All</IonLabel>
-                        </IonSegmentButton>
-                        <IonSegmentButton value="credit">
-                            <IonLabel>Credit</IonLabel>
-                        </IonSegmentButton>
-                        <IonSegmentButton value="debit">
-                            <IonLabel>Debit</IonLabel>
-                        </IonSegmentButton>
-                    </IonSegment>
-                </IonToolbar>
+
             </IonHeader>
 
             <IonContent fullscreen>
 
-
+                <IonRow className="ion-justify-content-center ion-padding-top">
+                    <IonCol size='8'>
+                        <IonSegment mode='ios' onIonChange={(e) => {
+                            if (e.detail?.value) {
+                                setCurrentSegment(e.detail.value.toString())
+                            }
+                        }
+                        } value={currentSegment}>
+                            <IonSegmentButton value="all">
+                                <IonLabel>All</IonLabel>
+                            </IonSegmentButton>
+                            <IonSegmentButton value="credit">
+                                <IonLabel>Credit</IonLabel>
+                            </IonSegmentButton>
+                            <IonSegmentButton value="debit">
+                                <IonLabel>Debit</IonLabel>
+                            </IonSegmentButton>
+                        </IonSegment>
+                    </IonCol>
+                </IonRow>
 
                 <div>
 
-                    {transactions.filter(item=>{
-                        
+                    {transactions.filter(item => {
+
                         if (currentSegment === 'debit') {
                             return item['type'] === 'debit';
                         } else if (currentSegment === 'credit') {

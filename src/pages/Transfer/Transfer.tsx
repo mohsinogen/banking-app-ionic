@@ -18,8 +18,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { arrowBack, card, person } from "ionicons/icons";
-import React from "react";
+import React, { useState } from "react";
 import { Transaction } from "../../types/global.types";
+import "./Transfer.css"
 
 function Transfer() {
   const transactions: Transaction[] = [
@@ -67,11 +68,23 @@ function Transfer() {
     return str;
 }
 
+const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountNumber:null})
 
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
-        <IonToolbar color={"dark"}>
+      <IonToolbar mode='ios' style={{'--min-height':'50px'}} color={'dark'}>
+        <IonButtons slot="start">
+         
+          <IonButton routerLink="/tabs/home">
+            <IonIcon slot="icon-only" icon={arrowBack}></IonIcon>
+          </IonButton>
+        </IonButtons>
+        
+        <IonTitle>Transfer</IonTitle>
+      </IonToolbar>
+
+     {/*    <IonToolbar color={"dark"}>
           <IonRow className="ion-align-items-center ion-justify-content-between">
             <IonCol className="d-flex centered" size={"2"}>
               <IonButton routerLink="/tabs/home" color={"light"} shape="round">
@@ -89,7 +102,7 @@ function Transfer() {
               </IonText>
             </IonCol>
           </IonRow>
-        </IonToolbar>
+        </IonToolbar> */}
       </IonHeader>
       <IonContent color={"dark"}>
         <IonCard mode="ios" style={{ borderRadius: "25px" }}>

@@ -38,6 +38,7 @@ import History from './pages/History';
 import Transfer from './pages/Transfer/Transfer';
 import MainLayout from './layouts/MainLayout';
 
+
 setupIonicReact();
 
 const App: React.FC = () => (
