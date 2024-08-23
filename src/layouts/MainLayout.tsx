@@ -23,6 +23,7 @@ import {
 import Cards from "../pages/Cards/Cards";
 import "./MainLayout.css";
 import Profile from "../pages/Profile/Profile";
+import Payment from "../pages/Payment/Payment";
 
 function MainLayout() {
     const location = useLocation();
@@ -53,6 +54,9 @@ function MainLayout() {
                     </Route>
                     <Route exact path="/transfer">
                         <Transfer />
+                    </Route>
+                    <Route exact path="/payment">
+                        <Payment />
                     </Route>
                     <Route exact path="/tabs/cards">
                         <Cards />

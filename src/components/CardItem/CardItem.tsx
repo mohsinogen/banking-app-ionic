@@ -48,7 +48,7 @@ function CardItem({ cardData }: { cardData: Card }) {
             onClick={() => {
               setIsPrivate(!isPrivate);
             }}
-            fill="outline"
+            fill="clear"
             color={"light"}
             shape="round"
           >

@@ -2,7 +2,7 @@ export interface Transaction {
   name: string;
   date: string;
   amount: number;
-  image?: string;
+  image: string;
   type: "debit" | "credit";
   accountNumber: number;
   bankName: string;

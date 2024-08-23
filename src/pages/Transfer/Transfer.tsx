@@ -19,34 +19,44 @@ import {
 } from "@ionic/react";
 import { arrowBack, card, person } from "ionicons/icons";
 import React, { useState } from "react";
-import { Transaction } from "../../types/global.types";
 import "./Transfer.css"
 import { transactions } from "../../utils/data";
+import { useHistory } from "react-router";
 
 function Transfer() {
 
+  const history = useHistory()
+
   function addTrailingEllipsis(str: string): string {
     if (str.length > 8) {
-        return str.slice(0, 8) + '...';
+      return str.slice(0, 8) + '...';
     }
     return str;
-}
+  }
 
-const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountNumber:null})
+  const [bank, setBank] = useState('');
+  const [name, setName] = useState('');
+  const [account, setAccount] = useState<number | null>(null);
+
+  const paymentHandler = (item: { bank: string, name: string, account: number | null, image:string }) => {
+    if (item.bank && item.name && item.account) {
+      history.push('/payment',{...item})
+    }
+  }
 
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
-      <IonToolbar mode='ios' style={{'--min-height':'50px'}} color={'dark'}>
-        <IonButtons slot="start">
-         
-          <IonButton routerLink="/tabs/home">
-            <IonIcon slot="icon-only" icon={arrowBack}></IonIcon>
-          </IonButton>
-        </IonButtons>
-        
-        <IonTitle>Transfer</IonTitle>
-      </IonToolbar>
+        <IonToolbar mode='ios' style={{ '--min-height': '50px' }} color={'dark'}>
+          <IonButtons slot="start">
+
+            <IonButton routerLink="/tabs/home">
+              <IonIcon slot="icon-only" icon={arrowBack}></IonIcon>
+            </IonButton>
+          </IonButtons>
+
+          <IonTitle>Transfer</IonTitle>
+        </IonToolbar>
 
       </IonHeader>
       <IonContent color={"dark"}>
@@ -57,7 +67,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                 <img width={"30px"} src={"./icons/bank-icon-light.png"} />
               </IonCol>
               <IonCol>
-                <IonSelect
+                <IonSelect onIonChange={(e) => setBank(e.detail.value)}
                   color={"light"}
                   labelPlacement="stacked"
                   style={{
@@ -71,7 +81,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                     <IonText color="light">Select Bank</IonText>
                   </div>
                   {["ABC bank",
-                    "HDFC Bank",
+                    "ICIC Bank",
                     "Kotak Bank",
                     "Maharashtra Bank",
                     "SBI bank",
@@ -90,7 +100,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                 ></IonIcon>
               </IonCol>
               <IonCol>
-                <IonInput
+                <IonInput onIonChange={(e) => setName(e.detail.value || '')}
                   style={{ color: "white" }}
                   type="text"
                   inputMode="text"
@@ -110,7 +120,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                 ></IonIcon>
               </IonCol>
               <IonCol>
-                <IonInput
+                <IonInput onIonChange={(e) => setAccount(e.detail.value ? Number(e.detail.value) : null)}
                   style={{ color: "white" }}
                   type="number"
                   inputMode="numeric"
@@ -130,6 +140,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
               shape="round"
               color={"light"}
               expand="block"
+              onClick={() => paymentHandler({ bank, name, account, image:'https://ionicframework.com/docs/img/demos/avatar.svg' })}
             >
               Next
             </IonButton>
@@ -150,9 +161,9 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
         </div>
 
         <IonRow className="ion-margin-top">
-          {transactions.slice(0,5).map((item) => (
-            <IonCol
-            key={item.name}
+          {transactions.slice(0, 5).map((item) => (
+            <IonCol onClick={()=> paymentHandler({account: item.accountNumber, bank: item.bankName, name: item.name, image:item.image})}
+              key={item.name}
               size="3"
               className="ion-margin-bottom d-flex centered"
               style={{ flexDirection: "column" }}
@@ -181,7 +192,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                   }
                 />
               </div>
-              <IonText color={"light"} className="f-bold t-center f-size-6-px" style={{marginTop:'5px'}}>
+              <IonText color={"light"} className="f-bold t-center f-size-6-px" style={{ marginTop: '5px' }}>
                 {addTrailingEllipsis(item.name)}
               </IonText>
             </IonCol>
