@@ -77,17 +77,17 @@ const History: React.FC = () => {
     return (
         <IonPage>
             <IonHeader mode="ios">
-                <IonToolbar color={'dark'}>
+                <IonToolbar color={'primary'}>
                     <IonTitle>History</IonTitle>
                 </IonToolbar>
 
             </IonHeader>
 
-            <IonContent fullscreen>
+            <IonContent fullscreen color={'primary'}>
 
                 <IonRow className="ion-justify-content-center ion-padding-top">
                     <IonCol size='8'>
-                        <IonSegment mode='ios' onIonChange={(e) => {
+                        <IonSegment color={'light'} mode='ios' onIonChange={(e) => {
                             if (e.detail?.value) {
                                 setCurrentSegment(e.detail.value.toString())
                             }

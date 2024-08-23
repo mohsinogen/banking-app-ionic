@@ -8,7 +8,7 @@ function CardItem({ cardData }: { cardData: Card }) {
   const [isPrivate, setIsPrivate] = useState(true);
 
   return (
-    <div color={"light"} className="card-item">
+    <div style={{background:cardData.background}} color={"light"} className="card-item">
       <IonRow className="ion-justify-content-between ion-align-items-center">
         <IonCol size="6" className="t-left">
           <IonText
@@ -16,7 +16,7 @@ function CardItem({ cardData }: { cardData: Card }) {
             color={cardData.active ? "success" : "danger"}
           >
             &#9679;{" "}
-            <IonText color={"medium"}>
+            <IonText color={"light"}>
               {cardData.active ? "Active" : "Unactivated"}
             </IonText>
           </IonText>
@@ -28,11 +28,11 @@ function CardItem({ cardData }: { cardData: Card }) {
 
       <IonRow className="ion-margin-top ion-align-items-center">
         <IonCol className="t-left" style={{ flexDiraction: "column", alignItems: "flex-start" }}>
-          <IonText color={"medium"} className="d-flex f-size-6-px">
+          <IonText color={"light"} className="d-flex f-size-6-px">
             Your Balance
           </IonText>
           <IonText
-            color={"dark"}
+            color={"light"}
             className="f-bold f-size-2-px f-family-poppins"
           >
             &#x20b9;
@@ -53,7 +53,7 @@ function CardItem({ cardData }: { cardData: Card }) {
             shape="round"
           >
             <IonIcon
-              color="primary"
+              color="light"
               slot="icon-only"
               icon={isPrivate ? eye : eyeOff}
             ></IonIcon>
@@ -66,12 +66,12 @@ function CardItem({ cardData }: { cardData: Card }) {
           style={{ flexDirection: "column", alignItems: "start" }}
           size="5"
         >
-          <IonText color={"medium"} className="f-size-7-px">
+          <IonText color={"light"} className="f-size-7-px">
             Card Number
           </IonText>
           <IonText
             className="f-bold f-family-poppins f-size-6-px"
-            color={"dark"}
+            color={"light"}
           >
             &#9679;&#9679;&#9679;&#9679;{cardData.carNumber}
           </IonText>
@@ -81,12 +81,12 @@ function CardItem({ cardData }: { cardData: Card }) {
           style={{ flexDirection: "column", alignItems: "end" }}
           size="3"
         >
-          <IonText color={"medium"} className="f-size-7-px">
+          <IonText color={"light"} className="f-size-7-px">
             Valid Thru
           </IonText>
           <IonText
             className="f-bold f-family-poppins f-size-6-px"
-            color={"dark"}
+            color={"light"}
           >
             {cardData.expire}
           </IonText>

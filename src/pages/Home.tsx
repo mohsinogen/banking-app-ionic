@@ -23,11 +23,13 @@ import "./Home.css";
 import {
   arrowDown,
   arrowUp,
+  downloadOutline,
   eye,
   grid,
   notifications,
   notificationsOutline,
   qrCode,
+  snowOutline,
 } from "ionicons/icons";
 import { useRef } from "react";
 import TransactionItem from "../components/TransactionItem/TransactionItem";
@@ -36,101 +38,46 @@ import CardItem from "../components/CardItem/CardItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "@ionic/react/css/ionic-swiper.css";
+import { cards, transactions } from "../utils/data";
 
 const Home: React.FC = () => {
-  const cards: Card[] = [
-    {
-      amount: "53,454.56",
-      carNumber: "4345",
-      expire: "03/32",
-      cardLogo: "./visaLogo.png",
-      active: true,
-    },
-    {
-      amount: "74,434.06",
-      carNumber: "4532",
-      expire: "10/33",
-      cardLogo: "./master-card-logo.png",
-      active: false,
-    },
-    {
-      amount: "24,434.06",
-      carNumber: "4532",
-      expire: "10/33",
-      cardLogo: "./visaLogo.png",
-      active: true,
-    },
-  ];
 
-  const transactions: Transaction[] = [
+
+  const options = [
     {
-      name: "John Peter",
-      amount: 600,
-      type: "debit",
-      image: "./avatars/Avatar-1.png",
-      date: "19th Jul 2024, 10:34 am",
+      title:'Top Up',
+      path:null,
+      icon: downloadOutline,
+      rotate: false
     },
     {
-      name: "Sarah Miller",
-      amount: 1500,
-      type: "credit",
-      image: "./avatars/Avatar-2.png",
-      date: "21st Jul 2024, 02:45 pm",
+      title:'Freeze',
+      path:null,
+      icon: snowOutline,
+      rotate: false
     },
     {
-      name: "Michael Smith",
-      amount: 320,
-      type: "debit",
-      image: "./avatars/Avatar-3.png",
-      date: "22nd Jul 2024, 11:30 am",
+      title:'Request',
+      path:null,
+      icon:arrowDown,
+      rotate: true
     },
     {
-      name: "Emily Davis",
-      amount: 840,
-      type: "debit",
-      image: "./avatars/Avatar-4.png",
-      date: "23rd Jul 2024, 04:20 pm",
+      title:'Transfer',
+      path:'/transfer',
+      icon:arrowUp,
+      rotate: true
     },
-    {
-      name: "James Brown",
-      amount: 1250,
-      type: "credit",
-      image: "./avatars/Avatar-5.png",
-      date: "24th Jul 2024, 08:10 am",
-    },
-    {
-      name: "Olivia Wilson",
-      amount: 760,
-      type: "debit",
-      image: "./avatars/Avatar-6.png",
-      date: "25th Jul 2024, 01:15 pm",
-    },
-    {
-      name: "David Johnson",
-      amount: 1320,
-      type: "credit",
-      image: "./avatars/Avatar-7.png",
-      date: "26th Jul 2024, 09:50 am",
-    },
-    {
-      name: "Sophia Martinez",
-      amount: 410,
-      type: "debit",
-      image: "./avatars/Avatar-8.png",
-      date: "27th Jul 2024, 03:30 pm",
-    },
-    {
-      name: "Daniel Rodriguez",
-      amount: 920,
-      type: "credit",
-      image: "./avatars/Avatar-9.png",
-      date: "28th Jul 2024, 07:25 am",
-    },
-  ];
+    
+  ]
+
+
+  
 
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
+        <IonToolbar color={'dark'}>
         <IonRow className="ion-align-items-center ion-justify-content-between ion-margin-top">
           <IonCol size="2">
             <div
@@ -162,15 +109,16 @@ const Home: React.FC = () => {
             </IonText>
           </IonCol>
           <IonCol className="d-flex centered" size={"2"}>
-            <IonButton color={"light"} shape="round">
+            <IonButton fill="outline" color={"medium"} shape="round">
               <IonIcon
-                color="primary"
+                color="light"
                 slot="icon-only"
-                icon={notifications}
+                icon={notificationsOutline}
               ></IonIcon>
             </IonButton>
           </IonCol>
         </IonRow>
+        </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen color={"dark"}>
@@ -193,131 +141,34 @@ const Home: React.FC = () => {
         <div
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
-          <div className="ion-margin-horizontal d-flex" style={{ justifyContent: 'space-between' }}>
-            <IonButton
-              className="f-bold"
-              mode="ios"
-              color={"light"} style={{ height: '70px', width:'70px' }}
+          <div
+            className="ion-margin-horizontal d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            {options.map((item)=>(
+              <div key={item.title}
+              className="d-flex"
+              style={{ flexDirection: "column", alignItems: "center" }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                className="custom-button-content"
+              <IonButton routerLink={item.path? item.path:undefined}
+                className="f-bold"
+                color={"primary"}
+                style={{ height: "70px", width: "70px" }}
+                shape="round"
               >
                 <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  icon={arrowDown}
-                ></IonIcon>
-                <IonLabel className="f-size-7-px">Request</IonLabel>
-              </div>
-              {/* <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  slot="start"
-                  icon={arrowDown}
-                ></IonIcon>
-                Request */}
-            </IonButton>
-            <IonButton
-              routerDirection="forward"
-              routerLink="/transfer"
-              className="f-bold"
-              mode="ios"
-              color={"light"} style={{ height: '70px', width:'70px' }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                className="custom-button-content"
-              >
-                <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  icon={arrowUp}
-                ></IonIcon>
-                <IonLabel className="f-size-7-px">Transfer</IonLabel>
-              </div>
-              {/*  <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  icon={arrowUp}
-                ></IonIcon>
-                Transfer */}
-            </IonButton>
-            <IonButton
-              className="f-bold"
-              mode="ios"
-              color={"light"} style={{ height: '70px', width:'70px' }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                className="custom-button-content"
-              >
-                <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  icon={arrowDown}
-                ></IonIcon>
-                <IonLabel className="f-size-7-px">Request</IonLabel>
-              </div>
-              {/* <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  slot="start"
-                  icon={arrowDown}
-                ></IonIcon>
-                Request */}
-            </IonButton>
-            <IonButton
-              routerDirection="forward"
-              routerLink="/transfer"
-              className="f-bold"
-              mode="ios"
-              color={"light"}
-              style={{ height: '70px', width:'70px' }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-                className="custom-button-content"
-              >
-                <IonIcon
-                  color="primary"
-                  icon={grid}
-                ></IonIcon>
-                <IonLabel className="f-size-7-px">More</IonLabel>
-              </div>
-              {/*  <IonIcon
-                  color="primary"
-                  style={{ rotate: "45deg" }}
-                  icon={arrowUp}
-                ></IonIcon>
-                Transfer */}
-            </IonButton>
-            {/* <IonCol className="d-flex centered" size="2">
-              <IonButton color={"light"} shape="round" size="large">
-                <IonIcon
-                  color="primary"
-                  slot="icon-only"
-                  icon={qrCode}
+                  color="light"
+                  style={{ rotate: item.rotate? "45deg":"" }}
+                  icon={item.icon}
+                  size="large"
                 ></IonIcon>
               </IonButton>
-            </IonCol> */}
+              <IonText className="f-size-6-px" style={{color:'var(--ion-color-light-shade)'}}>{item.title}</IonText>
+            </div>
+            ))}
+            
           </div>
+          
 
           <div className="recent-transactions">
             <div
@@ -328,14 +179,14 @@ const Home: React.FC = () => {
                 marginLeft: "10px",
               }}
             >
-              <IonText color={"dark"} className="f-bold f-size-4-px">
+              <IonText color={"light"} className="f-bold f-size-4-px">
                 Transactions
               </IonText>
               <IonButton
                 routerLink="/tabs/history"
                 mode="ios"
                 className="t-underline f-size-6-px f-bold"
-                color={"dark"}
+                color={"light"}
                 fill="clear"
               >
                 View All

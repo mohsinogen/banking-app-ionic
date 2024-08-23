@@ -12,4 +12,7 @@ export interface Card {
   expire: string;
   cardLogo: string;
   active: boolean;
+  background?: string;
 }
+
+

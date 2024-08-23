@@ -15,15 +15,15 @@ function TransactionItem({ transaction }: { transaction: Transaction }) {
                 
             </IonCol>
             <IonCol size='7'>
-                <IonRow><IonText className='f-bold f-family-poppins' color={'dark'}>
+                <IonRow><IonText className='f-bold f-family-poppins' color={'light'}>
                     {transaction.name}
                 </IonText></IonRow>
-                <IonRow><IonText className='f-size-6-px' color={'dark'} >
+                <IonRow><IonText className='f-size-6-px' color={'light'} >
                     {transaction.date}
                 </IonText></IonRow>
             </IonCol>
             <IonCol size='2.5' className='d-flex centered'>
-                <IonText className='f-bold' color={transaction.type === 'debit' ? 'danger' : 'success'}>
+                <IonText className='f-bold'>
                     {transaction.type === 'debit' ? '-' : '+'} &#x20b9;{transaction.amount}
                 </IonText>
             </IonCol>

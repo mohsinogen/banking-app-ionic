@@ -3,33 +3,11 @@ import React from 'react'
 import { Card } from '../../types/global.types';
 import CardItem from '../../components/CardItem/CardItem';
 import { add } from 'ionicons/icons';
+import { cards } from '../../utils/data';
 
 
 function Cards() {
 
-    const cards: Card[] = [
-        {
-            amount: '53,454.56',
-            carNumber: '4345',
-            expire: '03/32',
-            cardLogo: './visaLogo.png',
-            active: true
-        },
-        {
-            amount: '74,434.06',
-            carNumber: '4532',
-            expire: '10/33',
-            cardLogo: './master-card-logo.png',
-            active: false
-        },
-        {
-            amount: '24,434.06',
-            carNumber: '4532',
-            expire: '10/33',
-            cardLogo: './visaLogo.png',
-            active: true
-        },
-    ];
 
     return (
         <IonPage>
@@ -46,9 +24,11 @@ function Cards() {
             </IonHeader>
             <IonContent color={'dark'}>
 
-                <div style={{ margin: '5px' }}>
+                <div style={{ margin: '10px' }}>
                     {cards.map((item, index) => (
-                        <CardItem cardData={item} key={index} />
+                        <div style={{margin:'5px'}}>
+                            <CardItem cardData={item} key={index} />
+                        </div>
                     ))}
                 </div>
 

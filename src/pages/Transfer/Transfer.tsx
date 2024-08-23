@@ -105,7 +105,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
         </IonToolbar> */}
       </IonHeader>
       <IonContent color={"dark"}>
-        <IonCard mode="ios" style={{ borderRadius: "25px" }}>
+        <IonCard mode="ios" color={'primary'} style={{ borderRadius: "25px" }}>
           <IonCardContent>
             <IonRow className="ion-align-items-center ion-justify-content-start">
               <IonCol size="2">
@@ -113,17 +113,17 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
               </IonCol>
               <IonCol>
                 <IonSelect
-                  color={"dark"}
+                  color={"light"}
                   labelPlacement="stacked"
                   style={{
                     "--highlight-color-focused": "transparent",
-                    color: "black",
+                    color: "white",
                   }}
                   mode="md"
                   placeholder="ABC Bank"
                 >
                   <div slot="label">
-                    <IonText color="dark">Select Bank</IonText>
+                    <IonText color="light">Select Bank</IonText>
                   </div>
                   {[
                     "HDFC Bank",
@@ -139,18 +139,18 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
             <IonRow className="ion-align-items-center ion-justify-content-start">
               <IonCol size="2">
                 <IonIcon
-                  color="primary"
+                  color="light"
                   className="f-size-3-px"
                   icon={person}
                 ></IonIcon>
               </IonCol>
               <IonCol>
                 <IonInput
-                  style={{ color: "black" }}
+                  style={{ color: "white" }}
                   type="text"
                   inputMode="text"
                   labelPlacement="stacked"
-                  color={"dark"}
+                  color={"light"}
                   label="Nick Name"
                   placeholder="Joe Steve"
                 ></IonInput>
@@ -159,18 +159,18 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
             <IonRow className="ion-align-items-center ion-justify-content-start">
               <IonCol size="2">
                 <IonIcon
-                  color="primary"
+                  color="light"
                   className="f-size-3-px"
                   icon={card}
                 ></IonIcon>
               </IonCol>
               <IonCol>
                 <IonInput
-                  style={{ color: "black" }}
+                  style={{ color: "white" }}
                   type="number"
                   inputMode="numeric"
                   labelPlacement="stacked"
-                  color={"dark"}
+                  color={"light"}
                   label="Account Number"
                   placeholder="XXXXXXXXXX"
                 ></IonInput>
