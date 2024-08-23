@@ -21,45 +21,9 @@ import { arrowBack, card, person } from "ionicons/icons";
 import React, { useState } from "react";
 import { Transaction } from "../../types/global.types";
 import "./Transfer.css"
+import { transactions } from "../../utils/data";
 
 function Transfer() {
-  const transactions: Transaction[] = [
-    {
-      name: "John Peter",
-      amount: 600,
-      type: "debit",
-      image: "./avatars/Avatar-1.png",
-      date: "19th Jul 2024, 10:34 am",
-    },
-    {
-      name: "Michael Smith",
-      amount: 320,
-      type: "debit",
-      image: "./avatars/Avatar-3.png",
-      date: "22nd Jul 2024, 11:30 am",
-    },
-    {
-      name: "Emily Davis",
-      amount: 840,
-      type: "debit",
-      image: "./avatars/Avatar-4.png",
-      date: "23rd Jul 2024, 04:20 pm",
-    },
-    {
-      name: "Olivia Wilson",
-      amount: 760,
-      type: "debit",
-      image: "./avatars/Avatar-6.png",
-      date: "25th Jul 2024, 01:15 pm",
-    },
-    {
-      name: "Olivia Wilson",
-      amount: 760,
-      type: "debit",
-      image: "./avatars/Avatar-6.png",
-      date: "25th Jul 2024, 01:15 pm",
-    },
-  ];
 
   function addTrailingEllipsis(str: string): string {
     if (str.length > 8) {
@@ -84,32 +48,13 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
         <IonTitle>Transfer</IonTitle>
       </IonToolbar>
 
-     {/*    <IonToolbar color={"dark"}>
-          <IonRow className="ion-align-items-center ion-justify-content-between">
-            <IonCol className="d-flex centered" size={"2"}>
-              <IonButton routerLink="/tabs/home" color={"light"} shape="round">
-                <IonIcon
-                  color="primary"
-                  slot="icon-only"
-                  icon={arrowBack}
-                ></IonIcon>
-              </IonButton>
-            </IonCol>
-
-            <IonCol>
-              <IonText className="f-family-roboto f-size-4-px">
-                Transfer
-              </IonText>
-            </IonCol>
-          </IonRow>
-        </IonToolbar> */}
       </IonHeader>
       <IonContent color={"dark"}>
         <IonCard mode="ios" color={'primary'} style={{ borderRadius: "25px" }}>
           <IonCardContent>
             <IonRow className="ion-align-items-center ion-justify-content-start">
               <IonCol size="2">
-                <img width={"30px"} src={"./icons/bank-icon-filled.png"} />
+                <img width={"30px"} src={"./icons/bank-icon-light.png"} />
               </IonCol>
               <IonCol>
                 <IonSelect
@@ -120,18 +65,18 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
                     color: "white",
                   }}
                   mode="md"
-                  placeholder="ABC Bank"
+                  placeholder="XYZ Bank"
                 >
                   <div slot="label">
                     <IonText color="light">Select Bank</IonText>
                   </div>
-                  {[
+                  {["ABC bank",
                     "HDFC Bank",
                     "Kotak Bank",
                     "Maharashtra Bank",
                     "SBI bank",
                   ].map((item) => (
-                    <IonSelectOption value={item}>{item}</IonSelectOption>
+                    <IonSelectOption key={item} value={item}>{item}</IonSelectOption>
                   ))}
                 </IonSelect>
               </IonCol>
@@ -183,7 +128,7 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
             <IonButton
               mode="ios"
               shape="round"
-              color={"primary"}
+              color={"light"}
               expand="block"
             >
               Next
@@ -205,8 +150,9 @@ const [accountDetails, setAccountDetails] = useState({name:'', bank:'', accountN
         </div>
 
         <IonRow className="ion-margin-top">
-          {transactions.map((item) => (
+          {transactions.slice(0,5).map((item) => (
             <IonCol
+            key={item.name}
               size="3"
               className="ion-margin-bottom d-flex centered"
               style={{ flexDirection: "column" }}

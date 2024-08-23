@@ -4,6 +4,8 @@ export interface Transaction {
   amount: number;
   image?: string;
   type: "debit" | "credit";
+  accountNumber: number;
+  bankName: string;
 }
 
 export interface Card {
@@ -14,5 +16,3 @@ export interface Card {
   active: boolean;
   background?: string;
 }
-
-

@@ -26,8 +26,8 @@ function Cards() {
 
                 <div style={{ margin: '10px' }}>
                     {cards.map((item, index) => (
-                        <div style={{margin:'5px'}}>
-                            <CardItem cardData={item} key={index} />
+                        <div  key={index} style={{margin:'5px'}}>
+                            <CardItem cardData={item}  />
                         </div>
                     ))}
                 </div>

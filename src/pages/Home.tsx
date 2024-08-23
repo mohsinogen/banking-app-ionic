@@ -1,22 +1,14 @@
 import {
-  IonAvatar,
-  IonBadge,
+
   IonButton,
-  IonCard,
-  IonCardContent,
+
   IonCol,
   IonContent,
   IonHeader,
   IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonModal,
   IonPage,
   IonRow,
   IonText,
-  IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import "./Home.css";
@@ -24,16 +16,10 @@ import {
   arrowDown,
   arrowUp,
   downloadOutline,
-  eye,
-  grid,
-  notifications,
   notificationsOutline,
-  qrCode,
   snowOutline,
 } from "ionicons/icons";
-import { useRef } from "react";
 import TransactionItem from "../components/TransactionItem/TransactionItem";
-import { Card, Transaction } from "../types/global.types";
 import CardItem from "../components/CardItem/CardItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -42,82 +28,78 @@ import { cards, transactions } from "../utils/data";
 
 const Home: React.FC = () => {
 
-
   const options = [
     {
-      title:'Top Up',
-      path:null,
+      title: 'Top Up',
+      path: null,
       icon: downloadOutline,
       rotate: false
     },
     {
-      title:'Freeze',
-      path:null,
+      title: 'Freeze',
+      path: null,
       icon: snowOutline,
       rotate: false
     },
     {
-      title:'Request',
-      path:null,
-      icon:arrowDown,
+      title: 'Request',
+      path: null,
+      icon: arrowDown,
       rotate: true
     },
     {
-      title:'Transfer',
-      path:'/transfer',
-      icon:arrowUp,
+      title: 'Transfer',
+      path: '/transfer',
+      icon: arrowUp,
       rotate: true
     },
-    
+
   ]
-
-
-  
 
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
         <IonToolbar color={'dark'}>
-        <IonRow className="ion-align-items-center ion-justify-content-between ion-margin-top">
-          <IonCol size="2">
-            <div
-              className="d-flex centered"
-              style={{
-                background: "var(--ion-color-light)",
-                borderRadius: "80px",
-                width: "55px",
-                height: "55px",
-                marginLeft: "5px",
-              }}
+          <IonRow className="ion-align-items-center ion-justify-content-between ion-margin-top">
+            <IonCol size="2">
+              <div
+                className="d-flex centered"
+                style={{
+                  background: "var(--ion-color-light)",
+                  borderRadius: "80px",
+                  width: "55px",
+                  height: "55px",
+                  marginLeft: "5px",
+                }}
+              >
+                <img
+                  width={"50px"}
+                  height={"50px"}
+                  src="./avatars/Avatar-12.png"
+                />
+              </div>
+            </IonCol>
+            <IonCol
+              className="d-flex"
+              style={{ flexDirection: "column", marginLeft: "5px" }}
             >
-              <img
-                width={"50px"}
-                height={"50px"}
-                src="./avatars/Avatar-12.png"
-              />
-            </div>
-          </IonCol>
-          <IonCol
-            className="d-flex"
-            style={{ flexDirection: "column", marginLeft: "5px" }}
-          >
-            <IonText className="f-family-roboto f-size-6-px" color={"light"}>
-              Welcome Back
-            </IonText>
-            <IonText color={"light"} className="f-bold f-family-poppins">
-              Peter Parker!
-            </IonText>
-          </IonCol>
-          <IonCol className="d-flex centered" size={"2"}>
-            <IonButton fill="outline" color={"medium"} shape="round">
-              <IonIcon
-                color="light"
-                slot="icon-only"
-                icon={notificationsOutline}
-              ></IonIcon>
-            </IonButton>
-          </IonCol>
-        </IonRow>
+              <IonText className="f-family-roboto f-size-6-px" color={"light"}>
+                Welcome Back
+              </IonText>
+              <IonText color={"light"} className="f-bold f-family-poppins">
+                Peter Parker!
+              </IonText>
+            </IonCol>
+            <IonCol className="d-flex centered" size={"2"}>
+              <IonButton fill="outline" color={"medium"} shape="round">
+                <IonIcon
+                  color="light"
+                  slot="icon-only"
+                  icon={notificationsOutline}
+                ></IonIcon>
+              </IonButton>
+            </IonCol>
+          </IonRow>
         </IonToolbar>
       </IonHeader>
 
@@ -145,30 +127,30 @@ const Home: React.FC = () => {
             className="ion-margin-horizontal d-flex"
             style={{ justifyContent: "space-between" }}
           >
-            {options.map((item)=>(
+            {options.map((item) => (
               <div key={item.title}
-              className="d-flex"
-              style={{ flexDirection: "column", alignItems: "center" }}
-            >
-              <IonButton routerLink={item.path? item.path:undefined}
-                className="f-bold"
-                color={"primary"}
-                style={{ height: "70px", width: "70px" }}
-                shape="round"
+                className="d-flex"
+                style={{ flexDirection: "column", alignItems: "center" }}
               >
-                <IonIcon
-                  color="light"
-                  style={{ rotate: item.rotate? "45deg":"" }}
-                  icon={item.icon}
-                  size="large"
-                ></IonIcon>
-              </IonButton>
-              <IonText className="f-size-6-px" style={{color:'var(--ion-color-light-shade)'}}>{item.title}</IonText>
-            </div>
+                <IonButton routerLink={item.path ? item.path : undefined}
+                  className="f-bold"
+                  color={"primary"}
+                  style={{ height: "70px", width: "70px" }}
+                  shape="round"
+                >
+                  <IonIcon
+                    color="light"
+                    style={{ rotate: item.rotate ? "45deg" : "" }}
+                    icon={item.icon}
+                    size="large"
+                  ></IonIcon>
+                </IonButton>
+                <IonText className="f-size-6-px" style={{ color: 'var(--ion-color-light-shade)' }}>{item.title}</IonText>
+              </div>
             ))}
-            
+
           </div>
-          
+
 
           <div className="recent-transactions">
             <div
