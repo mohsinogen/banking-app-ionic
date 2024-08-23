@@ -1,6 +1,5 @@
 import { IonButton, IonButtons, IonCol, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonRow, IonSegment, IonSegmentButton, IonText, IonTitle, IonToolbar } from '@ionic/react'
 import React from 'react'
-import { Card } from '../../types/global.types';
 import CardItem from '../../components/CardItem/CardItem';
 import { add } from 'ionicons/icons';
 import { cards } from '../../utils/data';

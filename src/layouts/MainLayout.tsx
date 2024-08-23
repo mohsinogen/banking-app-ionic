@@ -7,7 +7,6 @@ import {
     IonTabButton,
     IonTabs,
 } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router";
 import Home from "../pages/Home/Home";
@@ -21,7 +20,6 @@ import {
     scanOutline,
 } from "ionicons/icons";
 import Cards from "../pages/Cards/Cards";
-import "./MainLayout.css";
 import Profile from "../pages/Profile/Profile";
 import Payment from "../pages/Payment/Payment";
 
