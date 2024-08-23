@@ -1,8 +1,8 @@
 import { IonCol, IonContent, IonHeader, IonLabel, IonPage, IonRow, IonSegment, IonSegmentButton, IonText, IonTitle, IonToolbar } from "@ionic/react"
-import TransactionItem from "../components/TransactionItem/TransactionItem";
+import TransactionItem from "../../components/TransactionItem/TransactionItem";
 import { useState } from "react";
 import "./History.css"
-import { transactions } from "../utils/data";
+import { transactions } from "../../utils/data";
 
 const History: React.FC = () => {
 

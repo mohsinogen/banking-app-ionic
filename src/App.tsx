@@ -1,7 +1,7 @@
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact, useIonRouter } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,7 +34,7 @@ import './App.css';
 /* Theme variables */
 import './theme/variables.css';
 import { ellipse, home, pieChart, square, time, triangle } from 'ionicons/icons';
-import History from './pages/History';
+import History from './pages/History/History';
 import Transfer from './pages/Transfer/Transfer';
 import MainLayout from './layouts/MainLayout';
 

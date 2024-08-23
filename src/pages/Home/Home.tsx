@@ -19,12 +19,12 @@ import {
   notificationsOutline,
   snowOutline,
 } from "ionicons/icons";
-import TransactionItem from "../components/TransactionItem/TransactionItem";
-import CardItem from "../components/CardItem/CardItem";
+import TransactionItem from "../../components/TransactionItem/TransactionItem";
+import CardItem from "../../components/CardItem/CardItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "@ionic/react/css/ionic-swiper.css";
-import { cards, transactions } from "../utils/data";
+import { cards, transactions } from "../../utils/data";
 
 const Home: React.FC = () => {
 

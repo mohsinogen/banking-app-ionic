@@ -10,8 +10,8 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router";
-import Home from "../pages/Home";
-import History from "../pages/History";
+import Home from "../pages/Home/Home";
+import History from "../pages/History/History";
 import Transfer from "../pages/Transfer/Transfer";
 import {
     card,
